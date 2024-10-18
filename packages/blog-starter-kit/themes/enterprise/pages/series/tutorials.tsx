@@ -84,7 +84,7 @@ export default function SeriesPage({ seriesList, publication }: Props) {
                   </div>
                   <div
                     className="hashnode-content-style mt-2"
-                    dangerouslySetInnerHTML={{ __html: series.description?.html ?? '' }}
+                    dangerouslySetInnerHTML={{ __html: series.node.description?.html ?? '' }}
                   ></div>
                 </div>
               ))}
