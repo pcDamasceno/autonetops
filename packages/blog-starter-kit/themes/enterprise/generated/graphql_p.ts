@@ -33,6 +33,7 @@ export type SeriesByPublicationQueryVariables = Exact<{
         __typename?: 'SeriesConnection'; // Adjust according to your schema
         edges: Array<{
           __typename?: 'SeriesEdge'; // Adjust according to your schema
+          cursor: string;
           node: {
             __typename?: 'Series'; // Adjust according to your schema
             name: string;
@@ -148,6 +149,7 @@ export const SeriesByPublicationDocument = {
                         selectionSet: {
                           kind: "SelectionSet",
                           selections: [
+                            { kind: "Field", name: { kind: "Name", value: "cursor" } },
                             {
                               kind: "Field",
                               name: { kind: "Name", value: "node" },

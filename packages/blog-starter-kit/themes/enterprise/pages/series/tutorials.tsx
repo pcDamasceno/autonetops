@@ -11,6 +11,7 @@ import { Layout } from '../../components/layout';
 import {
   PublicationFragment,
   SeriesFragment,
+  SeriesEdge,
 } from '../../generated/graphql';
 
 import {
@@ -23,7 +24,7 @@ import Link from 'next/link';
 
 // Props interface for static page
 interface Props {
-  seriesList: SeriesFragment[];
+  seriesList: SeriesEdge[];
   publication: PublicationFragment;
 }
 
@@ -42,10 +43,10 @@ export default function SeriesPage({ seriesList, publication }: Props) {
           {seriesList.length > 0 ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {seriesList.map((series) => (
-                <div key={series.slug} className="flex flex-col items-stretch">
+                <div key={series.node.slug} className="flex flex-col items-stretch">
                   <div className="relative">
                     <CoverImage
-                      title={series.name}
+                      title={series.node.name}
                       src={resizeImage(
                         series.node.coverImage,
                         {
