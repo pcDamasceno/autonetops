@@ -3,7 +3,9 @@ import  {
     Scalars,
     InputMaybe,
     Exact,
-    PublicationNavigationType
+    PublicationNavigationType,
+    TagPostsByPublicationQuery,
+    TagPostsByPublicationQueryVariables
 } from './graphql'
 
 
