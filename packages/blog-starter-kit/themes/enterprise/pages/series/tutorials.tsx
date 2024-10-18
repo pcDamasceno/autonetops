@@ -66,12 +66,20 @@ export default function SeriesPage({ seriesList, publication }: Props) {
                       {series.node.name}
                     </Link>
                   </h2>
+                  <Link href={series.node.slug}>
+                    <p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
+                      {series.node.description.markdown.length > 140 ? series.node.description.markdown.substring(0, 140) + '…' : series.node.description.markdown}
+                    </p>
+                  </Link>
                   <div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
                     <Link href={series.node.slug}>
                     Posts On this Tutorial: {series.node.posts.totalDocuments}
                     </Link>
                   </div>
-
+                  <div
+                    className="hashnode-content-style mt-2"
+                    dangerouslySetInnerHTML={{ __html: series.description?.html ?? '' }}
+                  ></div>
                 </div>
               ))}
             </div>
