@@ -39,6 +39,12 @@ export type SeriesByPublicationQueryVariables = Exact<{
             id: string;
             name: string;
             slug: string;
+            author: {
+              __typename?: 'User'; // Adjust according to your schema
+              id: string;
+            }
+            createdAt: string;
+            sortOrder: number;
             description?: {
               __typename?: 'Content'; // Adjust according to your schema
               markdown?: string | null; // Assuming markdown can be null
