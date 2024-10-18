@@ -1,11 +1,13 @@
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 import  {
-    Scalars,
-    InputMaybe,
-    Exact,
-    PublicationNavigationType,
-    TagPostsByPublicationQuery,
-    TagPostsByPublicationQueryVariables
+  Badge,  
+  Scalars,
+  InputMaybe,
+  Exact,
+  PublicationNavigationType,
+  TagPostsByPublicationQuery,
+  TagPostsByPublicationQueryVariables
+
 } from './graphql'
 
 
@@ -42,6 +44,11 @@ export type SeriesByPublicationQueryVariables = Exact<{
             author: {
               __typename?: 'User'; // Adjust according to your schema
               id: string;
+              name: string;
+              ambassador: Scalars['Boolean']['output'];
+              badges: Array<Badge>;
+              deactivatedAt?: boolean | null;
+              followersCount: number;
             }
             createdAt: string;
             sortOrder: number;
