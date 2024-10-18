@@ -104,7 +104,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 	const publication = data.publication;
   const seriesList = publication?.seriesList.edges ?? [];
-  console.log('data', seriesList)
+ // console.log('data', seriesList)
 
   // Return data as props
   return {
