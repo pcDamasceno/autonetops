@@ -8,14 +8,16 @@ import { CoverImage } from '../../components/cover-image';
 import { Footer } from '../../components/footer';
 import { Header } from '../../components/header';
 import { Layout } from '../../components/layout';
-import { MorePosts } from '../../components/more-posts';
 import {
   PublicationFragment,
   SeriesFragment,
+} from '../../generated/graphql';
+
+import {
   SeriesByPublicationQueryVariables,
   SeriesByPublicationQuery,
-  SeriesByPublicationDocument,
-} from '../../generated/graphql';
+  SeriesByPublicationDocument
+} from '../../generated/graphql_p'
 import { DEFAULT_COVER } from '../../utils/const';
 import Link from 'next/link';
 
@@ -104,7 +106,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 	const publication = data.publication;
   const seriesList = publication?.seriesList.edges ?? [];
-  console.log('data', seriesList)
+ // console.log('data', seriesList)
 
   // Return data as props
   return {
