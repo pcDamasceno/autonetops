@@ -68,7 +68,7 @@ export default function SeriesPage({ seriesList, publication }: Props) {
                   </h2>
                   <Link href={series.node.slug}>
                     <p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
-                      {series.node.description.markdown.length > 140 ? series.node.description.markdown.substring(0, 140) + '…' : series.node.description.markdown}
+                    {series.node.description?.markdown?.length > 140 ? series.node.description.markdown.substring(0, 140) + '…': series.node.description?.markdown || 'No description available'}
                     </p>
                   </Link>
                   <div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
