@@ -10,17 +10,16 @@ import { Header } from '../../components/header';
 import { Layout } from '../../components/layout';
 import {
   PublicationFragment,
-  SeriesFragment,
   SeriesEdge,
-} from '../../generated/graphql';
-
-import {
   SeriesByPublicationQueryVariables,
   SeriesByPublicationQuery,
   SeriesByPublicationDocument
-} from '../../generated/graphql_p'
+} from '../../generated/graphql';
+
 import { DEFAULT_COVER } from '../../utils/const';
 import Link from 'next/link';
+const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
+
 
 // Props interface for static page
 interface Props {
@@ -79,7 +78,7 @@ export default function SeriesPage({ seriesList, publication }: Props) {
                   </Link>
                   <div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
                     <Link href={series.node.slug}>
-                    Posts On this Tutorial: {series.node.posts.totalDocuments}
+                    Posts On this Tutorial: X
                     </Link>
                   </div>
                   <div
@@ -102,18 +101,17 @@ export default function SeriesPage({ seriesList, publication }: Props) {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   // Fetch all series data
   const data = await request< SeriesByPublicationQuery, SeriesByPublicationQueryVariables>(
-    process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT,
+    GQL_ENDPOINT,
     SeriesByPublicationDocument,
     {
       host: process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST,
-      first: 5,
-      after: "node"
+      first: 5
     },
   );
 
 	const publication = data.publication;
   const seriesList = publication?.seriesList.edges ?? [];
- // console.log('data', seriesList)
+  //console.log('data', seriesList)
 
   // Return data as props
   return {

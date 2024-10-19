@@ -1,0 +1,23 @@
+query SeriesByPublication($host: String!, $first: Int!) {
+  publication(host: $host) {
+	...Publication
+    seriesList(first: $first){
+      edges {
+        cursor
+        node {
+			...PSeries
+        }
+      }
+    }
+  }
+}
+
+fragment PSeries on Series {
+    name
+    slug
+    createdAt
+    coverImage
+    description {
+        markdown
+    }
+}
