@@ -1,23 +1,13 @@
-query SeriesByPublication($host: String!, $first: Int!) {
+query SeriesByPublication($host: String!, $first: Int!, $after: String) {
   publication(host: $host) {
 	...Publication
-    seriesList(first: $first){
+    seriesList(first: $first, after: $after){
       edges {
         cursor
         node {
-			...PSeries
+			    ...Series
         }
       }
     }
   }
-}
-
-fragment PSeries on Series {
-    name
-    slug
-    createdAt
-    coverImage
-    description {
-        markdown
-    }
 }

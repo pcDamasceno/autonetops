@@ -22,7 +22,7 @@ const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
 
 
 // Props interface for static page
-interface Props {
+type Props = {
   seriesList: SeriesEdge[];
   publication: PublicationFragment;
 }
@@ -68,10 +68,10 @@ export default function SeriesPage({ seriesList, publication }: Props) {
                   <Link href={series.node.slug}>
                     <p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
                     {
-                      series.node.description?.markdown
-                        ? series.node.description.markdown.length > 140
-                          ? series.node.description.markdown.substring(0, 140) + '…'
-                          : series.node.description.markdown
+                      series.node.description?.html
+                        ? series.node.description.html.length > 140
+                          ? series.node.description.html.substring(0, 140) + '…'
+                          : series.node.description.html
                         : 'No description available'
                     }
                     </p>
@@ -100,7 +100,7 @@ export default function SeriesPage({ seriesList, publication }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   // Fetch all series data
-  const data = await request< SeriesByPublicationQuery, SeriesByPublicationQueryVariables>(
+  const data = await request<SeriesByPublicationQuery, SeriesByPublicationQueryVariables>(
     GQL_ENDPOINT,
     SeriesByPublicationDocument,
     {
@@ -110,6 +110,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   );
 
 	const publication = data.publication;
+	if (!publication) {
+		return {
+			notFound: true,
+		};
+	}
   const seriesList = publication?.seriesList.edges ?? [];
   //console.log('data', seriesList)
 
