@@ -10,7 +10,7 @@ import { Header } from '../../components/header';
 import { Layout } from '../../components/layout';
 import {
   PublicationFragment,
-  SeriesEdge,
+  SeriesFragment,
   SeriesByPublicationQueryVariables,
   SeriesByPublicationQuery,
   SeriesByPublicationDocument
@@ -23,7 +23,7 @@ const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
 
 // Props interface for static page
 type Props = {
-  seriesList: SeriesEdge[];
+  seriesList: SeriesFragment[];
   publication: PublicationFragment;
 }
 
@@ -42,12 +42,12 @@ export default function SeriesPage({ seriesList, publication }: Props) {
           {seriesList.length > 0 ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {seriesList.map((series) => (
-                <div key={series.node.slug} className="flex flex-col items-stretch">
+                <div key={series.slug} className="flex flex-col items-stretch">
                   <div className="relative">
                     <CoverImage
-                      title={series.node.name}
+                      title={series.name}
                       src={resizeImage(
-                        series.node.coverImage,
+                        series.coverImage,
                         {
                           w: 400,
                           h: 210,
@@ -59,32 +59,23 @@ export default function SeriesPage({ seriesList, publication }: Props) {
                   </div>
                   <h2 className="text-2xl font-semibold leading-tight text-slate-800 dark:text-neutral-50">
                     <Link
-                      href={series.node.slug}
+                      href={series.slug}
                       className="hover:text-primary-600 dark:hover:text-primary-500 hover:underline"
                     >
-                      {series.node.name}
+                      {series.name}
                     </Link>
                   </h2>
-                  <Link href={series.node.slug}>
+                  <Link href={series.slug}>
                     <p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
                     {
-                      series.node.description?.html
-                        ? series.node.description.html.length > 140
-                          ? series.node.description.html.substring(0, 140) + '…'
-                          : series.node.description.html
+                      series.description?.html
+                        ? series.description.html.length > 240
+                          ? series.description.html.substring(0, 140) + '…'
+                          : series.description.html
                         : 'No description available'
                     }
                     </p>
                   </Link>
-                  <div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
-                    <Link href={series.node.slug}>
-                    Posts On this Tutorial: X
-                    </Link>
-                  </div>
-                  <div
-                    className="hashnode-content-style mt-2"
-                    dangerouslySetInnerHTML={{ __html: series.node.description?.html ?? '' }}
-                  ></div>
                 </div>
               ))}
             </div>
@@ -99,13 +90,12 @@ export default function SeriesPage({ seriesList, publication }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  // Fetch all series data
   const data = await request<SeriesByPublicationQuery, SeriesByPublicationQueryVariables>(
     GQL_ENDPOINT,
     SeriesByPublicationDocument,
     {
       host: process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST,
-      first: 5
+      first: 5,
     },
   );
 
@@ -115,7 +105,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 			notFound: true,
 		};
 	}
-  const seriesList = publication?.seriesList.edges ?? [];
+  const seriesList = publication?.seriesList.edges.map((edge) => edge.node);
   //console.log('data', seriesList)
 
   // Return data as props
