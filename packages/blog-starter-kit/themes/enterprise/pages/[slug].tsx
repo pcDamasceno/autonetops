@@ -14,6 +14,7 @@ import { MarkdownToHtml } from '../components/markdown-to-html';
 import { PostHeader } from '../components/post-header';
 import { PostTOC } from '../components/post-toc';
 import { GiscusWidget } from '../components/giscus-widget';
+import { CommentBox } from '../components/commentbox';
 import {
 	PageByPublicationDocument,
 	PostFullFragment,
@@ -144,7 +145,9 @@ const Post = ({ publication, post }: PostProps) => {
 					<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
 				</div>
 			)}
-			< GiscusWidget />
+			{/*< GiscusWidget /> */}
+			<CommentBox />
+
 			<AboutAuthor />
 			{!post.preferences.disableComments && post.comments.totalDocuments > 0 && <PostComments />}
 			<BuyMeACoffee />
