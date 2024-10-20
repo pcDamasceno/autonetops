@@ -10,7 +10,7 @@ export const Course = () => {
     	        Network Automation with Nornir: Mastering Network Tasks
     	      </h1>
     	      <p className="text-neutral-950 mt-3">
-    	        Dive into network automation with Nornir, a flexible Python framework tailored for network engineers. In this concise and focused course, you’ll gain a solid understanding of Nornir's core utilities, and learn how to automate network tasks efficiently. We will cover integrating Nornir with NetBox for dynamic inventory management, using Jinja2 templates to generate configurations, and automating tasks with NAPALM. Through practical examples and hands-on exercises, you’ll be equipped to streamline network operations and manage devices with ease.
+    	        Dive into network automation with Nornir, a flexible Python framework tailored for network engineers. In this concise and focused course, you’ll gain a solid understanding of Nornirs core utilities, and learn how to automate network tasks efficiently. We will cover integrating Nornir with NetBox for dynamic inventory management, using Jinja2 templates to generate configurations, and automating tasks with NAPALM. Through practical examples and hands-on exercises, you’ll be equipped to streamline network operations and manage devices with ease.
     	      </p>
     	      <div className="flex mt-6">
     	        <button className="bg-neutral-950 text-white px-6 py-3 rounded-md">
@@ -72,7 +72,7 @@ export const Course = () => {
     	      <div>
     	        <h3 className="text-neutral-950 font-bold">Nornir Fundamentals and Configuration</h3>
     	        <p className="text-neutral-500 mt-1">
-    	          This chapter introduces the Nornir framework and its core components. You'll learn how to set up Nornir, define device inventories, execute tasks, and manage data using Nornir's built-in utilities. We'll also explore best practices for writing clean and efficient Nornir scripts.
+    	          This chapter introduces the Nornir framework and its core components. Youll learn how to set up Nornir, define device inventories, execute tasks, and manage data using Nornirs built-in utilities. Well also explore best practices for writing clean and efficient Nornir scripts.
     	        </p>
     	      </div>
     	    </div>
@@ -85,7 +85,7 @@ export const Course = () => {
     	          Integrating Nornir with NetBox and Jinja2
     	        </h3>
     	        <p className="text-neutral-500 mt-1">
-    	          In this chapter, you’ll learn how to leverage NetBox, a popular network infrastructure management platform, to dynamically manage Nornir's device inventory for different network devices, ensuring consistency and reducing manual errors. We'll cover how to use Jinja2 templating to generate configuration files for devices.
+    	          In this chapter, you’ll learn how to leverage NetBox, a popular network infrastructure management platform, to dynamically manage Nornirs device inventory for different network devices, ensuring consistency and reducing manual errors. Well cover how to use Jinja2 templating to generate configuration files for devices.
     	        </p>
     	      </div>
     	    </div>
