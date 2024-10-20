@@ -14,7 +14,6 @@ import { MarkdownToHtml } from '../components/markdown-to-html';
 import { PostHeader } from '../components/post-header';
 import { PostTOC } from '../components/post-toc';
 import { GiscusWidget } from '../components/giscus-widget';
-import { CommentBox } from '../components/commentbox';
 import {
 	PageByPublicationDocument,
 	PostFullFragment,
@@ -30,7 +29,6 @@ import { loadIframeResizer } from '@starter-kit/utils/renderer/services/embed';
 import { useEffect, useState } from 'react';
 // @ts-ignore
 import { triggerCustomWidgetEmbed } from '@starter-kit/utils/trigger-custom-widget-embed';
-import Giscus from '@giscus/react';
 
 const AboutAuthor = dynamic(() => import('../components/about-author'), { ssr: false });
 const Subscribe = dynamic(() => import('../components/subscribe').then((mod) => mod.Subscribe));
@@ -145,8 +143,7 @@ const Post = ({ publication, post }: PostProps) => {
 					<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
 				</div>
 			)}
-			{/*< GiscusWidget /> */}
-			<CommentBox />
+			< GiscusWidget />
 
 			<AboutAuthor />
 			{!post.preferences.disableComments && post.comments.totalDocuments > 0 && <PostComments />}
