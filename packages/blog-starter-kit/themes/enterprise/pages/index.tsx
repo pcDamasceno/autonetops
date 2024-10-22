@@ -76,7 +76,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 				date={post.publishedAt}
 				slug={post.slug}
 				excerpt={post.brief}
-				tags={post.tags}
+				tags={post.tags ?? []}
 			/>
 		);
 	});

@@ -4,7 +4,7 @@ import { DEFAULT_COVER } from '../utils/const';
 import { CoverImage } from './cover-image';
 import { DateFormatter } from './date-formatter';
 
-interface Tag {
+type Tag = {
 	id: string;
 	name: string;
 	slug: string;
