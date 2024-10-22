@@ -55,7 +55,7 @@ export const TagList = ({ title, posts }: TagListProps) => {
           style={{ animation: 'scroll 20s linear infinite' }} // Adjust the duration as needed
         >
           {tagsArray.map(tag => (
-            <Link key={tag.id} href={`/tags/${tag.slug}`}>
+            <Link key={tag.id} href={`/tag/${tag.slug}`}>
               <div className="bg-gray-200 text-gray-800 rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200">
                 {tag.name}
               </div>

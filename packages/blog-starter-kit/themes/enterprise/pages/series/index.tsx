@@ -42,7 +42,7 @@ export default function SeriesPage({ seriesList, publication }: Props) {
           {seriesList.length > 0 ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {seriesList.map((series) => (
-                <div key={series.slug} className="flex flex-col items-stretch">
+                <div key={`/series/${series.slug}`} className="flex flex-col items-stretch">
                   <div className="relative">
                     <CoverImage
                       title={series.name}
@@ -59,13 +59,13 @@ export default function SeriesPage({ seriesList, publication }: Props) {
                   </div>
                   <h2 className="text-2xl font-semibold leading-tight text-slate-800 dark:text-neutral-50">
                     <Link
-                      href={series.slug}
+                      href={`/series/${series.slug}`}
                       className="hover:text-primary-600 dark:hover:text-primary-500 hover:underline"
                     >
                       {series.name}
                     </Link>
                   </h2>
-                  <Link href={series.slug}>
+                  <Link href={`/series/${series.slug}`}>
                     <p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
                     {
                       series.description?.html
