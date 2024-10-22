@@ -77,17 +77,23 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 				date={post.publishedAt}
 				slug={post.slug}
 				excerpt={post.brief}
-				tags={post.tags ?? []}
+				tags={post.tags || []}
 			/>
 		);
 	});
 	const morePosts = allPosts.slice(4);
 	const tagList = (
-			<TagList
-				title="All Tags"
-				posts={allPosts.slice(1,10)}
-			/>
-	);
+		<TagList
+		  posts={allPosts.slice(1,10).map((post) => ({
+			title: post.title,
+			coverImage: post.coverImage?.url || DEFAULT_COVER,
+			date: post.publishedAt,
+			excerpt: post.brief,
+			slug: post.slug,
+			tags: post.tags || [],
+		  }))}
+		/>
+	  );
 
 	return (
 		<AppProvider publication={publication}>

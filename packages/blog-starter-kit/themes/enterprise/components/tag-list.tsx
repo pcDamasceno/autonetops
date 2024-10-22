@@ -1,24 +1,13 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import '../styles/scroller.css';
+import { Tag , Props } from './secondary-post';
 
-type Tag = {
-  id: string;
-  name: string;
-  slug: string;
-}
-
-type Post = {
-  title: string;
-  tags: Tag[];
-};
 
 type TagListProps = {
-  title: string;
-  posts: Post[];
+  posts: Props[];
 };
 
-export const TagList = ({ title, posts }: TagListProps) => {
+export const TagList = ({ posts }: TagListProps) => {
   const uniqueTags = new Map<string, Tag>();
 
   posts.forEach(post => {
@@ -48,7 +37,7 @@ export const TagList = ({ title, posts }: TagListProps) => {
 
   return (
     <div>
-      <h2 className="text-lg font-bold mb-4">{title}</h2>
+      <h2 className="text-lg font-bold mb-4">Tags</h2>
       <div className="overflow-hidden">
         <div
           ref={scrollRef}
