@@ -17,6 +17,7 @@ import { Layout } from '../components/layout';
 import { MorePosts } from '../components/more-posts';
 import { Navbar } from '../components/navbar';
 import { SecondaryPost } from '../components/secondary-post';
+import { TagList } from '../components/tag-list';
 import {
 	MorePostsByPublicationDocument,
 	MorePostsByPublicationQuery,
@@ -81,6 +82,12 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 		);
 	});
 	const morePosts = allPosts.slice(4);
+	const tagList = (
+			<TagList
+				title="All Tags"
+				posts={allPosts.slice(1,10)}
+			/>
+	);
 
 	return (
 		<AppProvider publication={publication}>
@@ -163,6 +170,8 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 							</div>
 						</div>
 					)}
+
+					<div className="col-span-1 flex flex-col gap-6">{tagList}</div>
 
 					{morePosts.length > 0 && (
 						<>
