@@ -46,7 +46,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 	const [allPosts, setAllPosts] = useState<PostFragment[]>(initialAllPosts);
 	const [pageInfo, setPageInfo] = useState<Props['initialPageInfo']>(initialPageInfo);
 	const [loadedMore, setLoadedMore] = useState(false);
-
+	
 	const loadMore = async () => {
 		const data = await request<MorePostsByPublicationQuery, MorePostsByPublicationQueryVariables>(
 			GQL_ENDPOINT,
@@ -76,6 +76,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 				date={post.publishedAt}
 				slug={post.slug}
 				excerpt={post.brief}
+				tags={post.tags}
 			/>
 		);
 	});

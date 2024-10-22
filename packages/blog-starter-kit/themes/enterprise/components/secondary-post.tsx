@@ -4,16 +4,23 @@ import { DEFAULT_COVER } from '../utils/const';
 import { CoverImage } from './cover-image';
 import { DateFormatter } from './date-formatter';
 
+interface Tag {
+	id: string;
+	name: string;
+	slug: string;
+  }
+
 type Props = {
 	title: string;
 	coverImage: string;
 	date: string;
 	excerpt: string;
 	slug: string;
+	tags: Tag[];
 };
 
-export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
-	const postURL = `/${slug}`;
+export const SecondaryPost = ({ title, coverImage, date, excerpt, slug, tags }: Props) => {
+	const postURL = `blog/${slug}`;
 
 	return (
 		<section className="grid items-start gap-5 md:grid-cols-2">
@@ -42,6 +49,17 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 					<Link href={postURL}>
 						<DateFormatter dateString={date} />
 					</Link>
+				</div>
+				<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
+					{tags.map((tag) => (
+						<Link
+							key={tag.id}
+							href={`/tag/${tag.slug}`}
+							className="hover:text-primary-600 dark:hover:text-primary-500 hover:underline"
+						>
+							#{tag.name} 
+						</Link>
+					))}
 				</div>
 			</div>
 		</section>

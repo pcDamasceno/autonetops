@@ -12,4 +12,13 @@ fragment Post on Post {
   publishedAt
   slug
   brief
+  tags {
+    ...Tag
+  }
+}
+
+fragment Tag on Tag {
+  id
+  name
+  slug
 }
