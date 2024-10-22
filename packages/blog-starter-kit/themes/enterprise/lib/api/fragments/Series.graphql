@@ -1,0 +1,16 @@
+fragment Series on Series {
+	id
+	name
+	slug
+	description {
+		html
+	}
+	coverImage
+	posts(first: $first, after: $after) {
+		edges {
+			node {
+				...Post
+			}
+		}
+	}
+}
