@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import '../styles/scroller.css';
 
 type Tag = {
   id: string;
