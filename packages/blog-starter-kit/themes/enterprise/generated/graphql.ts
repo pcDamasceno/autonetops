@@ -1379,11 +1379,18 @@ export type DocumentationGuide = IGuide & {
   name: Scalars['String']['output'];
   /** OG meta-data of the page. Contains image url used in open graph meta tags. */
   ogMetaData?: Maybe<OpenGraphMetaData>;
+  /** Page of any version of this guide. */
   page?: Maybe<DocumentationPage>;
   provider: GuideProvider;
+  /** Only published page of any version of this guide. */
   publishedPage?: Maybe<DocumentationPage>;
   /** Only published sidebar items of the default version of this guide. */
   publishedSidebarItems: Array<DocumentationSidebarItem>;
+  /**
+   * Only published page of any version of this guide.
+   *
+   * Takes redirects into account and may return the page that the requested page redirects to.
+   */
   redirectedPublishedPage?: Maybe<DocumentationPage>;
   /** SEO information of the page. Contains title and description used in meta tags. */
   seo?: Maybe<Seo>;
