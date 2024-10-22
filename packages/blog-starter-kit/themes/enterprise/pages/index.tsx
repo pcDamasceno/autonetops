@@ -177,7 +177,6 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 						</div>
 					)}
 
-					<div className="col-span-1 flex flex-col gap-6">{tagList}</div>
 
 					{morePosts.length > 0 && (
 						<>
