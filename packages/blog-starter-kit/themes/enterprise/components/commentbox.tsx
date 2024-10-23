@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const Comments = () => {
+export const Comments = () => {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://utteranc.es/client.js';
@@ -19,5 +19,3 @@ const Comments = () => {
 
   return <div id="comments"></div>;
 };
-
-export default Comments;
