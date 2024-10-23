@@ -13,8 +13,7 @@ import { Layout } from '../../components/layout';
 import { MarkdownToHtml } from '../../components/markdown-to-html';
 import { PostHeader } from '../../components/post-header';
 import { PostTOC } from '../../components/post-toc';
-import { GiscusWidget } from '../../components/giscus-widget';
-import { Comments } from '../../components/commentbox';
+import  Comments  from '../../components/commentbox';
 import {
 	PageByPublicationDocument,
 	PostFullFragment,
