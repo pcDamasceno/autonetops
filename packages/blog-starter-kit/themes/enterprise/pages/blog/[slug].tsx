@@ -13,6 +13,7 @@ import { Layout } from '../../components/layout';
 import { MarkdownToHtml } from '../../components/markdown-to-html';
 import { PostHeader } from '../../components/post-header';
 import { PostTOC } from '../../components/post-toc';
+import  Comments  from '../../components/commentbox';
 import {
 	PageByPublicationDocument,
 	PostFullFragment,
@@ -36,7 +37,6 @@ const BuyMeACoffee = dynamic(() => import('../../components/buymeacoffee').then(
 const PostComments = dynamic(() =>
 	import('../../components/post-comments').then((mod) => mod.PostComments),
 );
-const Comments = dynamic(() => import('../../components/commentbox'), { ssr: false });
 
 type PostProps = {
 	type: 'post';
