@@ -44,17 +44,20 @@ const blogCategories = [
   {
     title: "Network Automation",
     description: "Practical guides and tutorials on automating network tasks using Python, Ansible, and more.",
-    icon: "🤖"
+    icon: "🤖",
+    slug: "/tag/network-automation"
   },
   {
     title: "Cloud Infrastructure",
     description: "Hands-on labs and best practices for working with AWS, Azure, and GCP.",
-    icon: "☁️"
+    icon: "☁️",
+    slug: "#"
   },
   {
     title: "DevOps Practices",
     description: "Real-world examples of implementing DevOps principles in network operations.",
-    icon: "🔄"
+    icon: "🔄",
+    slug: "#"
   }
 ];
 
@@ -72,36 +75,38 @@ export default function Index({ publication }: Props) {
         </Head>
         <Header />
         <main className="flex-grow">
-			<AnimatedHeroSection />
+			  <AnimatedHeroSection />
 
 
 
-{/* Blog Categories Section */}
-<section className="py-16 bg-white">
-  <Container>
-    <h2 className="text-3xl font-bold text-blue-900 mb-10 text-center">
-      What You&apos;ll Learn
-    </h2>
-    <div className="grid md:grid-cols-3 gap-8">
-      {blogCategories.map((category, index) => (
-        <div
-          key={index}
-          className="bg-blue-50 rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
-        >
-          <div className="text-4xl text-blue-600 mb-4 flex items-center justify-center">
-            {category.icon}
-          </div>
-          <h3 className="text-2xl font-semibold text-blue-900 mb-4 text-center">
-            {category.title}
-          </h3>
-          <p className="text-slate-800 text-center">
-            {category.description}
-          </p>
-        </div>
-      ))}
-    </div>
-  </Container>
-</section>
+        {/* Blog Categories Section */}
+        <section className="py-16 bg-white">
+          <Container>
+            <h2 className="text-3xl font-bold text-blue-900 mb-10 text-center">
+              What You&apos;ll Learn
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {blogCategories.map((category, index) => (
+                <Link href={`${category.slug}`} key={index}>
+                <div
+                  key={index}
+                  className="bg-blue-50 rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
+                >
+                  <div className="text-4xl text-blue-600 mb-4 flex items-center justify-center">
+                    {category.icon}
+                  </div>
+                  <h3 className="text-2xl font-semibold text-blue-900 mb-4 text-center">
+                    {category.title}
+                  </h3>
+                  <p className="text-slate-800 text-center">
+                    {category.description}
+                  </p>
+                </div>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
 
 
           {/* Newsletter Section */}
