@@ -98,7 +98,7 @@ export default function Index({ publication }: Props) {
           <section className="py-16 bg-white">
             <Container>
               <h2 className="text-2xl font-bold text-slate-800 mb-8 text-center">
-                What You'll Learn
+                What You&apos;ll Learn
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {blogCategories.map((category, index) => (
