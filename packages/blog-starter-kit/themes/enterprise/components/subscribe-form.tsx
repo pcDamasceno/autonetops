@@ -41,33 +41,35 @@ export const SubscribeForm = () => {
 	};
 	return (
 		<>
-			{!status && (
-				<div className="relative w-full rounded-full bg-white p-2 dark:bg-neutral-950">
-					<input
-						ref={inputRef}
-						type="email"
-						placeholder="john@doe.com"
-						className="focus:outline-primary-600 dark:focus:outline-primary-500 left-3 top-3 w-full rounded-full p-3 text-base text-black outline-none dark:bg-neutral-950 dark:text-neutral-50"
-					/>
-					<button
-						disabled={requestInProgress}
-						onClick={subscribe}
-						className="bg-primary-600 dark:bg-primary-600 absolute right-3 top-3 rounded-full px-3 py-2 text-white disabled:cursor-not-allowed disabled:opacity-80"
-					>
-						Subscribe
-					</button>
-				</div>
-			)}
-			{status === 'PENDING' && (
-				<div className="relative w-full p-2 text-center">
-					<p className="font-bold dark:text-green-500">Almost there!</p>
-					<p className="font-medium text-slate-600 dark:text-neutral-300">
-						Check your inbox for a confirmation email and click{' '}
-						<strong>&quot;Confirm and Subscribe&quot;</strong> to complete your subscription. Thanks
-						for joining us!
-					</p>
-				</div>
-			)}
+		  {!status && (
+			<div className="relative w-full rounded-full bg-white p-3 shadow-md dark:bg-neutral-900">
+			  <input
+				ref={inputRef}
+				type="email"
+				placeholder="Enter your email"
+				aria-label="Email address"
+				className="focus:outline-primary-600 dark:focus:outline-primary-500 w-full rounded-full px-5 py-3 text-base text-slate-800 placeholder:text-slate-400 outline-none dark:bg-neutral-800 dark:text-neutral-50 transition-colors duration-200"
+			  />
+			  <button
+				disabled={requestInProgress}
+				onClick={subscribe}
+				className="bg-primary-600 dark:bg-primary-500 absolute right-3 top-1/2 -translate-y-1/2 rounded-full px-5 py-2 font-semibold text-white transition-all duration-300 ease-in-out hover:bg-primary-700 dark:hover:bg-primary-600 disabled:cursor-not-allowed disabled:opacity-60"
+			  >
+				Subscribe
+			  </button>
+			</div>
+		  )}
+		  {status === 'PENDING' && (
+			<div className="relative w-full rounded-md bg-blue-50 p-5 text-center shadow-md dark:bg-neutral-800">
+			  <p className="font-semibold text-blue-700 dark:text-green-500">
+				Almost there!
+			  </p>
+			  <p className="mt-2 text-slate-700 dark:text-neutral-300">
+				Check your inbox for a confirmation email and click{' '}
+				<strong>“Confirm and Subscribe”</strong> to complete your subscription. Thank you for joining us!
+			  </p>
+			</div>
+		  )}
 		</>
-	);
+	  );
 };

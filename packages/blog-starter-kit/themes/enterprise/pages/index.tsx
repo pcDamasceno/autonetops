@@ -114,9 +114,9 @@ export default function Index({ publication }: Props) {
                 <p className="text-slate-600 mb-8">
                   Subscribe to receive new tutorials, guides, and automation tips directly in your inbox.
                 </p>
-                <div className="bg-white rounded-lg p-6 shadow-sm">
+                
                   <SubscribeForm />
-                </div>
+                
               </div>
             </Container>
           </section>
