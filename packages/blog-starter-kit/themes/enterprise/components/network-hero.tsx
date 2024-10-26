@@ -37,18 +37,7 @@ const NetworkHero = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg 
-                  flex items-center justify-center gap-2 transition-all duration-300 
-                  shadow-lg hover:shadow-blue-500/30">
-                  Get Started
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-                <button className="px-6 py-3 border border-slate-600 hover:border-blue-400 
-                  text-slate-300 hover:text-blue-400 rounded-lg transition-all duration-300">
-                  View Documentation
-                </button>
-              </div>
+
 
               {/* Feature Highlights */}
               <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-700">
