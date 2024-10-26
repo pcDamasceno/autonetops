@@ -32,7 +32,7 @@ export const Footer = () => {
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
-									<a href="#" className="hover:underline">
+									<a href="/about" className="hover:underline">
 										Contact us
 									</a>
 								</li>
@@ -59,7 +59,7 @@ export const Footer = () => {
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">Resources</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
-									<Link href="#" className="hover:underline">
+									<Link href="/blog" className="hover:underline">
 										Blog
 									</Link>
 								</li>
@@ -113,7 +113,7 @@ export const Footer = () => {
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">Other links</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
-									<Link href="/about-me" className="hover:underline">
+									<Link href="/about" className="hover:underline">
 										About
 									</Link>
 								</li>
