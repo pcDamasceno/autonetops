@@ -32,9 +32,9 @@ export const Footer = () => {
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
-									<a href="/about" className="hover:underline">
-										Contact us
-									</a>
+									<Link href="/about" className="hover:underline">
+										Contact Us
+									</Link>
 								</li>
 								{/*
 								<li>
