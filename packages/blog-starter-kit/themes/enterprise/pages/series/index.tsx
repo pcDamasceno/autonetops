@@ -40,7 +40,7 @@ export default function SeriesPage({ seriesList, publication }: Props) {
         </Head>
         <Header />
         <Container className="flex flex-col items-stretch gap-10 px-5 pb-10">
-          <h1 className="text-4xl font-bold mb-8">{title}</h1>
+          <h1 className="pt-10 text-4xl font-bold mb-8">{title}</h1>
           {seriesList.length > 0 ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {seriesList.map((series) => (

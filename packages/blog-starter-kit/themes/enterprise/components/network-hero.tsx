@@ -1,94 +1,70 @@
 import React from 'react';
-import { Network, Server, Workflow, ArrowRight } from 'lucide-react';
+import { Network, Server, Workflow, Cloud, Database, Settings, ArrowRight } from 'lucide-react';
+import { Container } from '../components/container';
+import Link from 'next/link';
 
-const NetworkHero = () => {
+const AnimatedHeroSection = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Animated Network Background */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute h-px w-1/3 bg-blue-400 animate-pulse"
-            style={{
-              top: `${i * 20}%`,
-              left: `${(i % 2) * 60}%`,
-              animationDelay: `${i * 0.5}s`,
-              transform: `rotate(${i * 30}deg)`
-            }}
-          />
-        ))}
-      </div>
+    <main className="flex-grow">
+      <section className="relative py-16 md:py-20 min-h-[65vh] flex items-center justify-center">
+        {/* Lighter Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-100 via-blue-200 to-blue-300" />
 
-      <div className="container mx-auto px-4 h-screen flex items-center">
-        <div className="max-w-6xl mx-auto">
-          {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Text Content */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  Network Automation
-                  <span className="block text-blue-400">Made Simple</span>
-                </h1>
-                <p className="text-lg md:text-xl text-slate-300">
-                  Transform your network infrastructure with powerful automation tools. 
-                  Streamline operations, reduce errors, and boost efficiency.
-                </p>
-              </div>
-
-
-
-              {/* Feature Highlights */}
-              <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-700">
-                <div className="text-center">
-                  <Server className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-sm text-slate-300">Infrastructure as Code</p>
-                </div>
-                <div className="text-center">
-                  <Network className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-sm text-slate-300">Real-time Monitoring</p>
-                </div>
-                <div className="text-center">
-                  <Workflow className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-sm text-slate-300">Automated Workflows</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Visual Element */}
-            <div className="hidden lg:block relative">
-              <div className="relative">
-                {/* Network Nodes Visual */}
-                {[...Array(9)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-4 h-4 bg-blue-400 rounded-full animate-pulse"
-                    style={{
-                      top: `${Math.sin(i) * 150 + 200}px`,
-                      left: `${Math.cos(i) * 150 + 200}px`,
-                      animationDelay: `${i * 0.2}s`
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping" />
-                  </div>
-                ))}
-                {/* Connection Lines */}
-                <svg className="absolute inset-0 w-full h-full">
-                  <path
-                    d="M200,200 L300,300 L400,200 L300,100 Z"
-                    className="stroke-blue-400/30"
-                    fill="none"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
+        {/* Animated Network Lines */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute h-px bg-blue-500 animate-pulse"
+              style={{
+                width: '35%',
+                top: `${i * 20}%`,
+                left: `${(i % 2) * 60}%`,
+                animationDelay: `${i * 0.7}s`,
+                transform: `rotate(${i * 30}deg)`,
+                opacity: 0.2,
+                animationDirection: 'alternate',
+              }}
+            />
+          ))}
         </div>
-      </div>
-    </div>
+
+        {/* Floating Icons */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Network className="text-blue-500 w-12 h-12 absolute top-10 left-10 animate-bounce" />
+          <Server className="text-blue-500 w-12 h-12 absolute bottom-10 right-10 animate-bounce delay-75" />
+          <Cloud className="text-blue-500 w-10 h-10 absolute top-1/4 right-20 animate-spin-slow" />
+          <Database className="text-blue-500 w-10 h-10 absolute bottom-1/4 left-20 animate-spin-slow delay-150" />
+          <Workflow className="text-blue-500 w-10 h-10 absolute top-1/3 left-1/4 animate-bounce delay-100" />
+          <Settings className="text-blue-500 w-10 h-10 absolute bottom-1/3 right-1/4 animate-spin-slow delay-200" />
+        </div>
+
+        {/* Content Container */}
+        <Container className="relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+              Simplifying Network, Automation & Cloud Infrastructure
+            </h1>
+
+            <p className="text-lg md:text-xl text-blue-700 mb-8">
+              Dive into the world of networking through hands-on labs, tutorials, and real-world projects.
+            </p>
+
+            {/* Explore Button */}
+            <Link href="/blog">
+              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                Explore Latest Posts
+              </button>
+            </Link>
+          </div>
+        </Container>
+
+        {/* Decorative Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-300 to-transparent opacity-40 pointer-events-none" />
+      </section>
+    </main>
   );
 };
 
-export default NetworkHero;
+export default AnimatedHeroSection;

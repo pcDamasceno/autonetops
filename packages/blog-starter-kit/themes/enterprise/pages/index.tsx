@@ -11,7 +11,7 @@ import { AppProvider } from '../components/contexts/appContext';
 import { Footer } from '../components/footer';
 import { Header } from '../components/header';
 import { Layout } from '../components/layout';
-import NetworkHero from '../components/network-hero';
+import AnimatedHeroSection from '../components/network-hero';
 import {
   PostsByPublicationDocument,
   PostsByPublicationQuery,
@@ -72,52 +72,37 @@ export default function Index({ publication }: Props) {
         </Head>
         <Header />
         <main className="flex-grow">
-          {/* Hero Section */}
-          <section className="py-16 bg-gradient-to-b from-blue-50 to-white">
-            <Container>
-              <div className="max-w-3xl mx-auto text-center">
-                <h1 className="text-4xl font-bold text-slate-800 mb-6">
-                  Simplifying Network, Automation & Cloud Infrastructure
-                </h1>
-                <p className="text-lg text-slate-600 mb-8">
-                  Explore the exciting world of networking through practical tutorials, 
-                  hands-on labs, and real-world examples.
-                </p>
-                <Link href="/blog">
-                  <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold 
-                    hover:bg-blue-500 transition-colors duration-300 flex items-center gap-2 mx-auto">
-                    Explore Latest Posts
-                    <ArrowRight />
-                  </button>
-                </Link>
-              </div>
-            </Container>
-          </section>
+			<AnimatedHeroSection />
 
-          {/* Blog Categories Section */}
-          <section className="py-16 bg-white">
-            <Container>
-              <h2 className="text-2xl font-bold text-slate-800 mb-8 text-center">
-                What You&apos;ll Learn
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                {blogCategories.map((category, index) => (
-                  <div
-                    key={index}
-                    className="bg-blue-50 rounded-lg p-6 hover:shadow-md transition-shadow duration-300"
-                  >
-                    <div className="text-3xl mb-4">{category.icon}</div>
-                    <h3 className="text-xl font-semibold mb-3 text-slate-800">
-                      {category.title}
-                    </h3>
-                    <p className="text-slate-600">
-                      {category.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Container>
-          </section>
+
+
+{/* Blog Categories Section */}
+<section className="py-16 bg-white">
+  <Container>
+    <h2 className="text-3xl font-bold text-blue-900 mb-10 text-center">
+      What You&apos;ll Learn
+    </h2>
+    <div className="grid md:grid-cols-3 gap-8">
+      {blogCategories.map((category, index) => (
+        <div
+          key={index}
+          className="bg-blue-50 rounded-lg p-8 shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105"
+        >
+          <div className="text-4xl text-blue-600 mb-4 flex items-center justify-center">
+            {category.icon}
+          </div>
+          <h3 className="text-2xl font-semibold text-blue-900 mb-4 text-center">
+            {category.title}
+          </h3>
+          <p className="text-slate-800 text-center">
+            {category.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
+
 
           {/* Newsletter Section */}
           <section className="py-16 bg-blue-50">
