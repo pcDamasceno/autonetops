@@ -5,14 +5,14 @@ import { SubscribeForm } from './subscribe-form';
 
 export const Subscribe = () => {
 	return (
-		<div className="fixed z-50 bottom-10 right-10">
+		<div className="fixed z-50 bottom-10 left-10">
 			<Popover.Root>
 				<Popover.Trigger asChild>
 					<Button
 						label="Subscribe"
 						type="outline"
 						icon={<NewsletterPlusSVG className="w-5 h-5 fill-current" />}
-						className="!bg-white dark:!bg-neutral-950"
+						className="!bg-primary-300 dark:!bg-neutral-950 text-white"
 					/>
 				</Popover.Trigger>
 				<Popover.Portal>
