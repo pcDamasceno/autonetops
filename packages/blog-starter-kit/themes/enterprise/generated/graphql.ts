@@ -1381,19 +1381,9 @@ export type DocumentationGuide = IGuide & {
   ogMetaData?: Maybe<OpenGraphMetaData>;
   /** Page of any version of this guide. */
   page?: Maybe<DocumentationPage>;
-  provider: GuideProvider;
-  /** Only published page of any version of this guide. */
   publishedPage?: Maybe<DocumentationPage>;
   /** Only published sidebar items of the default version of this guide. */
   publishedSidebarItems: Array<DocumentationSidebarItem>;
-  /**
-   * Only published page of any version of this guide. The path may include the version slug.
-   *
-   * Takes redirects into account and may return the page that the requested page redirects to.
-   *
-   * If the path is only a version slug, it will redirect to the first page of that version.
-   */
-  redirectedPublishedPage?: Maybe<DocumentationPage>;
   /** SEO information of the page. Contains title and description used in meta tags. */
   seo?: Maybe<Seo>;
   /** Sidebar items of the default version of this guide. */
