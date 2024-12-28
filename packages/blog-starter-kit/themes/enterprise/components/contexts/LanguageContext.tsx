@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-type Language = 'en' | 'pt';
+type Language = 'en' | 'pt-br';
 
 interface LanguageContextProps {
   language: Language;
@@ -20,7 +20,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
         if (data.country_name === 'Brazil') {
-          setLanguage('pt');
+          setLanguage('pt-br');
         }
       } catch {
         // If there's an error, it remains 'en' by default
@@ -29,7 +29,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   }, []);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'pt' : 'en'));
+    setLanguage((prev) => (prev === 'en' ? 'pt-br' : 'en'));
   };
 
   return (
