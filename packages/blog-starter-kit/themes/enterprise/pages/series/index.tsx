@@ -8,7 +8,7 @@ import { CoverImage } from '../../components/cover-image';
 import { Footer } from '../../components/footer';
 import { Header } from '../../components/header';
 import { Layout } from '../../components/layout';
-import NetworkHero from '../../components/network-hero';
+import { useLanguage } from '../../components/contexts/LanguageContext';
 
 import {
   PublicationFragment,

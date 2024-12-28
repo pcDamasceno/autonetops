@@ -30,6 +30,7 @@ import {
 	PublicationFragment,
 } from '../../generated/graphql';
 import { DEFAULT_COVER } from '../../utils/const';
+import { useLanguage } from '../../components/contexts/LanguageContext';
 
 const SubscribeForm = dynamic(() =>
 	import('../../components/subscribe-form').then((mod) => mod.SubscribeForm),
@@ -44,9 +45,15 @@ type Props = {
 };
 
 export default function Index({ publication, initialAllPosts, initialPageInfo }: Props) {
+	const { language } = useLanguage();
 	const [allPosts, setAllPosts] = useState<PostFragment[]>(initialAllPosts);
 	const [pageInfo, setPageInfo] = useState<Props['initialPageInfo']>(initialPageInfo);
 	const [loadedMore, setLoadedMore] = useState(false);
+
+	// Filter posts based on the selected language
+	const filteredPosts = allPosts.filter((post) =>
+		(post.tags ?? []).some((tag) => tag.name.toLowerCase() === language)
+	  );
 	
 	const loadMore = async () => {
 		const data = await request<MorePostsByPublicationQuery, MorePostsByPublicationQueryVariables>(
@@ -67,8 +74,8 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 		setLoadedMore(true);
 	};
 
-	const firstPost = allPosts[0];
-	const secondaryPosts = allPosts.slice(1, 4).map((post) => {
+	const firstPost = filteredPosts[0];
+	const secondaryPosts = filteredPosts.slice(1, 4).map((post) => {
 		return (
 			<SecondaryPost
 				key={post.id}
@@ -81,10 +88,10 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 			/>
 		);
 	});
-	const morePosts = allPosts.slice(4);
+	const morePosts = filteredPosts.slice(4);
 	const tagList = (
 		<TagList
-		  posts={allPosts.slice(1,10).map((post) => ({
+		  posts={filteredPosts.slice(1,10).map((post) => ({
 			title: post.title,
 			coverImage: post.coverImage?.url || DEFAULT_COVER,
 			date: post.publishedAt,
