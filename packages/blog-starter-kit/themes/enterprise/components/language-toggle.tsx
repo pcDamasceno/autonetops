@@ -1,7 +1,7 @@
 // components/LanguageToggle.tsx
 
 import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
+import { useLanguage } from './contexts/LanguageContext';
 import { FaFlagUsa, FaFlag } from 'react-icons/fa'; // Using react-icons for flags
 
 const LanguageToggle: React.FC = () => {
