@@ -1,6 +1,6 @@
 // contexts/LanguageContext.tsx
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'pt';
 
@@ -13,6 +13,20 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(undefine
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        if (data.country_name === 'Brazil') {
+          setLanguage('pt');
+        }
+      } catch {
+        // If there's an error, it remains 'en' by default
+      }
+    })();
+  }, []);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === 'en' ? 'pt' : 'en'));
