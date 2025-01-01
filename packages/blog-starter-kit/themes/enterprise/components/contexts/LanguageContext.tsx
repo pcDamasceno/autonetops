@@ -15,18 +15,30 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [language, setLanguage] = useState<Language>('en');
 
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
-        if (data.country_name === 'Brazil') {
-          setLanguage('pt-br');
+    // 1. Check if a language is already stored in localStorage
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      setLanguage(storedLanguage as Language);
+    } else {
+      // 2. If not stored, do your IP-based check
+      (async () => {
+        try {
+          const response = await fetch('https://ipapi.co/json/');
+          const data = await response.json();
+          if (data.country_name === 'Brazil') {
+            setLanguage('pt-br');
+          }
+        } catch {
+          // If there's an error, language remains 'en'
         }
-      } catch {
-        // If there's an error, it remains 'en' by default
-      }
-    })();
+      })();
+    }
   }, []);
+
+  // 3. Whenever language changes, save to localStorage
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === 'en' ? 'pt-br' : 'en'));
