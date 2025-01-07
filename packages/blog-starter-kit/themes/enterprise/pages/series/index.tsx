@@ -97,7 +97,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     SeriesByPublicationDocument,
     {
       host: process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST,
-      first: 5,
+      first: 10,
     },
   );
 
