@@ -43,19 +43,19 @@ type Props = {
 const blogCategories = [
   {
     title: "Network Automation",
-    description: "Practical guides and tutorials on automating network tasks using Python, Ansible, and more.",
+    description: "Practical guides and tutorials on automating network tasks.",
     icon: "🤖",
     slug: "/tag/network-automation"
   },
   {
-    title: "Cloud Infrastructure",
-    description: "Hands-on labs and best practices for working with AWS, Azure, and GCP.",
-    icon: "☁️",
-    slug: "#"
+    title: "Network Design",
+    description: "Core networking methods and guidelines for network specialists.",
+    icon: "🌐",
+    slug: "/tag/network"
   },
   {
     title: "DevOps Practices",
-    description: "Real-world examples of implementing DevOps principles in network operations.",
+    description: "DevOps principles in network operations.",
     icon: "🔄",
     slug: "#"
   }
