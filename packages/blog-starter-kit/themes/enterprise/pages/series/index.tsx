@@ -31,6 +31,11 @@ type Props = {
 
 export default function SeriesPage({ seriesList, publication }: Props) {
   const title = `Tutorials - ${publication.title}`;
+  const { language } = useLanguage();
+
+
+  // Filter Lists based on the selected language (en, pt-br) - eu-> en, jul->pt-br
+
 
   return (
     <AppProvider publication={publication}>
