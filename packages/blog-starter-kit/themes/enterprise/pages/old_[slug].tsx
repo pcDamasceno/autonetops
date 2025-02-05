@@ -38,6 +38,7 @@ const PostComments = dynamic(() =>
 	import('../components/post-comments').then((mod) => mod.PostComments),
 );
 
+
 type PostProps = {
 	type: 'post';
 	post: PostFullFragment;
@@ -144,7 +145,6 @@ const Post = ({ publication, post }: PostProps) => {
 				</div>
 			)}
 			<Comments />
-
 			<AboutAuthor />
 			{!post.preferences.disableComments && post.comments.totalDocuments > 0 && <PostComments />}
 			<BuyMeACoffee />

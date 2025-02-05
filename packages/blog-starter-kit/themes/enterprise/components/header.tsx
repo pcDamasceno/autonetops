@@ -29,7 +29,7 @@ export const Header = () => {
 
 	const navList = (
 		<ul className="flex flex-row items-center gap-2 text-white">
-			{visibleItems.map((item) => (
+			{/*{visibleItems.map((item) => (
 				<li key={item.url}>
 					<a
 						href={item.url}
@@ -42,7 +42,8 @@ export const Header = () => {
 			))}
 
 			{hiddenItems.length > 0 && (
-				<li>
+				
+					<li>
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger asChild>
 							<button className="transition-200 block rounded-full p-2 transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white">
@@ -71,7 +72,8 @@ export const Header = () => {
 						</DropdownMenu.Portal>
 					</DropdownMenu.Root>
 				</li>
-			)}
+				
+			)}*/}
 		</ul>
 	);
 
