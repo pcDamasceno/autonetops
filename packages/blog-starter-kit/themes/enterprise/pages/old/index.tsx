@@ -6,23 +6,23 @@ import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Container } from '../components/container';
-import { AppProvider } from '../components/contexts/appContext';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
-import { Layout } from '../components/layout';
-import AnimatedHeroSection from '../components/network-hero';
+import { Container } from '../../components/container';
+import { AppProvider } from '../../components/contexts/appContext';
+import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
+import { Layout } from '../../components/layout';
+import AnimatedHeroSection from '../../components/network-hero';
 import {
   PostsByPublicationDocument,
   PostsByPublicationQuery,
   PostsByPublicationQueryVariables,
   PublicationFragment,
-} from '../generated/graphql';
+} from '../../generated/graphql';
 
 const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
 
 const SubscribeForm = dynamic(() =>
-  import('../components/subscribe-form').then((mod) => mod.SubscribeForm),
+  import('../../components/subscribe-form').then((mod) => mod.SubscribeForm),
 );
 
 

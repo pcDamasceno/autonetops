@@ -5,15 +5,15 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Container } from '../components/container';
-import { AppProvider } from '../components/contexts/appContext';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
-import { Layout } from '../components/layout';
-import { MarkdownToHtml } from '../components/markdown-to-html';
-import { PostHeader } from '../components/post-header';
-import { PostTOC } from '../components/post-toc';
-import  Comments  from '../components/commentbox';
+import { Container } from '../../components/container';
+import { AppProvider } from '../../components/contexts/appContext';
+import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
+import { Layout } from '../../components/layout';
+import { MarkdownToHtml } from '../../components/markdown-to-html';
+import { PostHeader } from '../../components/post-header';
+import { PostTOC } from '../../components/post-toc';
+import  Comments  from '../../components/commentbox';
 import {
 	PageByPublicationDocument,
 	PostFullFragment,
@@ -21,7 +21,7 @@ import {
 	SinglePostByPublicationDocument,
 	SlugPostsByPublicationDocument,
 	StaticPageFragment,
-} from '../generated/graphql';
+} from '../../generated/graphql';
 // @ts-ignore
 import handleMathJax from '@starter-kit/utils/handle-math-jax';
 import { useEmbeds } from '@starter-kit/utils/renderer/hooks/useEmbeds';
@@ -30,12 +30,12 @@ import { useEffect, useState } from 'react';
 // @ts-ignore
 import { triggerCustomWidgetEmbed } from '@starter-kit/utils/trigger-custom-widget-embed';
 
-const AboutAuthor = dynamic(() => import('../components/about-author'), { ssr: false });
-const Subscribe = dynamic(() => import('../components/subscribe').then((mod) => mod.Subscribe));
-const BuyMeACoffee = dynamic(() => import('../components/buymeacoffee').then((mod) => mod.BuyMeACoffee));
+const AboutAuthor = dynamic(() => import('../../components/about-author'), { ssr: false });
+const Subscribe = dynamic(() => import('../../components/subscribe').then((mod) => mod.Subscribe));
+const BuyMeACoffee = dynamic(() => import('../../components/buymeacoffee').then((mod) => mod.BuyMeACoffee));
 
 const PostComments = dynamic(() =>
-	import('../components/post-comments').then((mod) => mod.PostComments),
+	import('../../components/post-comments').then((mod) => mod.PostComments),
 );
 
 
